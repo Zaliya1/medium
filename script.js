@@ -22,17 +22,13 @@ switch (lang) {
 }
 
 let arrWeek = [
-    ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"], 
-    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
+    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"],
+    ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
 ];
 
-if (lang === "ru") {
-    console.log(arrWeek[0]);
-} else if (lang === "en") {
-    console.log(arrWeek[1]);
-}
-
-lang === "ru" ? console.log(arrWeek[0]) : console.log(arrWeek[1]);
+let a = lang === "ru";
+a = Number(a);
+console.log(arrWeek[a]);
 
 // Задача 2
 
