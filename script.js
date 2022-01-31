@@ -1,18 +1,44 @@
-const title = "Название проекта";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 300;
-let rollback = 99;
-let fullPrice = 80000;
-let adaptive = true;
+// Задача 1
 
-console.log(title);
-console.log(fullPrice);
-console.log(adaptive);
-console.log(screens.length);
-console.log("Стоимость верстки экранов " + screenPrice + " рублей");
-console.log("Стоимость разработки сайта " + fullPrice +" гривен");
+let lang = 'ru';
 
-screens = screens.toLowerCase().split(" ");
-console.log(screens);
+if (lang === "ru") {
+    console.log("ПН, ВТ, СР, ЧТ, ПТ, СБ, ВС");
+} else if (lang === "en") {
+    console.log("Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday");
+} else {
+   console.log("Повторите ввод");
+}
 
-console.log(fullPrice * (rollback/100));
+switch (lang) {
+    case "ru":
+        console.log("ПН, ВТ, СР, ЧТ, ПТ, СБ, ВС");
+        break;
+    case "en":
+        console.log("Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday");
+        break;
+    default:
+        console.log("Повторите ввод");
+}
+
+let arrWeek = [
+    ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"], 
+    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
+];
+
+if (lang === "ru") {
+    console.log(arrWeek[0]);
+} else if (lang === "en") {
+    console.log(arrWeek[1]);
+}
+
+lang === "ru" ? console.log(arrWeek[0]) : console.log(arrWeek[1]);
+
+// Задача 2
+
+let namePerson = "Александр";
+
+let result = (namePerson === "Артем") ? 'директор' :
+    (namePerson === "Александр") ? 'преподаватель' :
+    'студент';
+console.log(result);
