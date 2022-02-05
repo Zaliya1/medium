@@ -15,33 +15,19 @@ const searchCount = function (array, num1, num2) {
 searchCount(arr, 2, 4);
 
 // 2 задача
-
-let arr1 = []; //массив от 1 до 100
-let arr2 = []; //массив от 2 до 100
-let uncorrectArr = []; // массив НЕпростых чисел
-let correctArr = []; // массив простых чисел
-
-for (let i = 1; i <= 100; i++) {
-    arr1.push(i);
-}
-for (let n = 2; n <= 100; n++) {
-    arr2.push(n);
-}
-for (let i =0; i< arr1.length; i++) {
-    for (let n =0; n<= arr2.length; n++) {
-        if (arr1[i] > arr2[n]) {
-            if(arr1[i] % arr2[n] === 0) {
-                uncorrectArr.push(arr1[i]);
-                break;
-            }
+function checkCount (num) {
+    let isPrime = true;
+    for(let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            isPrime=false;
         }
     }
-}
-
-//Сравнить массив 2 и сложный массив. Добавляем в простой массив те числа, которых нет в сложном
-for (let i = 0; i < arr2.length; i++) {
-    if (uncorrectArr.indexOf(arr2[i]) === -1) {
-       correctArr.push(arr2[i]);
+    if (isPrime === true) {
+        console.log(num + ` Делители данного числа 1 и ${num}`);
     }
 }
-console.log("Массив простых чисел: " + correctArr);
+// isPrime(5);
+
+for (let n = 2; n <100; n++) {
+    checkCount(n);
+}
