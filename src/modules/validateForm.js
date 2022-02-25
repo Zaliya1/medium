@@ -1,48 +1,67 @@
 const validateForm = () => {
-    const form1Name = document.getElementById('form1-name');
-    const form1Email = document.getElementById('form1-email');
-    const form1Phone = document.getElementById('form1-phone');
-    
-    const form2Name = document.getElementById('form2-name');
-    const form2Email = document.getElementById('form2-email');
-    const form2Phone = document.getElementById('form2-phone');
+    const inputs = document.querySelectorAll('input');
+    const formNames = document.querySelectorAll('input[placeholder="Ваше имя"]');
+    const formEmails = document.querySelectorAll('input[type=email]');
+    const formPhones = document.querySelectorAll('input[type=tel]');
     const form2Message = document.getElementById('form2-message');
+   
+    inputs.forEach(item => {
+        item.addEventListener('blur', (event) => {
+            event.target.value = event.target.value.replace(/\s{1,}/g, ' ');
+            event.target.value = event.target.value.replace(/^[\s\-]/g, ''); // можно ли объединить со строкой 12?
+            event.target.value = event.target.value.replace(/[\s\-]$/g, '');
+        });
+    });
+    formNames.forEach(item => {
+        item.addEventListener('input', (event) => {
+            event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
+        });
+        item.addEventListener('blur', (event) => {
+            event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/g, '');
+        });
+        item.addEventListener('blur', (event) => {
+            event.target.value = event.target.value.replace(/([а-яА-Я]){1}([а-яА-Я]){1,}]/g, ($1, $2)=> {
+                return `${$1}`.toUpperCase() + `${$2}`.toLowerCase();
+            });
+            event.target.value = event.target.value.replace(/([а-яА-Я]){1,}/g, (str) => {
+                // for (let i = 0; i<str.lenght; i++) {
+                //     if (i === 0) {
+                //         str += str[i].toUpperCase; 
+                //     } else {
+                //         str += str[i].toLowerCase;
+                //     }
+                // }
+                // return str;
+                return str[0].toUpperCase()+str[1].toLowerCase()+str[2].toLowerCase()+str[3].toLowerCase()+str[4].toLowerCase();
+            });
+            
+        });
 
-    const form3Name = document.getElementById('form3-name');
-    const form3Email = document.getElementById('form3-email');
-    const form3Phone = document.getElementById('form3-phone');
-
-    form1Name.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
     });
-    form1Email.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^\w\@\-\.\!\~\*\']/, '');
+    formEmails.forEach(item => {
+        item.addEventListener('input', (event) => {
+            event.target.value = event.target.value.replace(/[^\w\@\-\.\!\~\*\']/, '');
+        });
+        item.addEventListener('blur', (event) => {
+            event.target.value = event.target.value.replace(/[^\w\@\-\.\!\~\*\']/g, '');
+            event.target.value = event.target.value.replace(/\s{1,}/g, ' ');
+        });
     });
-    form1Phone.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^\d\-\(\)]/, '');
-    });
-
-    form2Name.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
-    });
-    form2Email.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^\w\@\-\.\!\~\*\']/, '');
-    });
-    form2Phone.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^\d\-\(\)]/, '');
+    formPhones.forEach(item => {
+        item.addEventListener('input', (event) => {
+            event.target.value = event.target.value.replace(/[^\d\-\(\)]/, '');
+        });
+        item.addEventListener('blur', (event) => {
+            event.target.value = event.target.value.replace(/[^\d\-\(\)]/g, '');
+            event.target.value = event.target.value.replace(/\s{1,}/g, ' ');
+        });
     });
     form2Message.addEventListener('input', (event) => {
         event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
     });
-
-    form3Name.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
-    });
-    form3Email.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^\w\@\-\.\!\~\*\']/, '');
-    });
-    form3Phone.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^\d\-\(\)]/, '');
+    form2Message.addEventListener('blur', (event) => {
+        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/g, '');
+        event.target.value = event.target.value.replace(/\s{1,}/g, ' ');
     });
 };
 export default validateForm;
