@@ -1,0 +1,136 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./index.js":
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer.js */ \"./modules/timer.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_calculate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/calculate */ \"./modules/calculate.js\");\n/* harmony import */ var _modules_validateForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/validateForm */ \"./modules/validateForm.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_timer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('1 march 2022');\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\r\n(0,_modules_calculate__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n(0,_modules_validateForm__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?");
+
+/***/ }),
+
+/***/ "./modules/calculate.js":
+/*!******************************!*\
+  !*** ./modules/calculate.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst calculate = () => {\r\n    const inputSquare = document.querySelector('.calc-square');\r\n    const inputCount = document.querySelector('.calc-count');\r\n    const inputDay= document.querySelector('.calc-day');\r\n    inputSquare.addEventListener('input', (e) => {\r\n        e.target.value = e.target.value.replace(/\\D+/, '');\r\n    });\r\n    inputCount.addEventListener('input', (e) => {\r\n        e.target.value = e.target.value.replace(/\\D+/, '');\r\n    });\r\n    inputDay.addEventListener('input', (e) => {\r\n        e.target.value = e.target.value.replace(/\\D+/, '');\r\n    });\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (calculate);\n\n//# sourceURL=webpack:///./modules/calculate.js?");
+
+/***/ }),
+
+/***/ "./modules/menu.js":
+/*!*************************!*\
+  !*** ./modules/menu.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst menu = () => {\r\n    const menuBtn = document.querySelector('.menu');\r\n    const menu = document.querySelector('menu');\r\n    const closeBtn = menu.querySelector('.close-btn');\r\n    const menuItems = menu.querySelectorAll('ul>li>a');\r\n\r\n    const handleMenu = () => {\r\n        menu.classList.toggle('active-menu');\r\n    };\r\n    menuBtn.addEventListener('click', handleMenu);\r\n    closeBtn.addEventListener('click', handleMenu);\r\n    menuItems.forEach(menuItem => {\r\n        menuItem.addEventListener('click', handleMenu);\r\n    });\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);\n\n//# sourceURL=webpack:///./modules/menu.js?");
+
+/***/ }),
+
+/***/ "./modules/modal.js":
+/*!**************************!*\
+  !*** ./modules/modal.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst modal = () => {\r\n    const buttons = document.querySelectorAll('.popup-btn');\r\n    const modal = document.querySelector('.popup');\r\n    const btnClose = modal.querySelector('.popup-close');\r\n    const popupContent = modal.querySelector('.popup-content');\r\n    const inputs = modal.querySelectorAll('input');\r\n    const headingModal = modal.querySelector('h3');\r\n    const btnModal = modal.querySelector('.form-btn');\r\n    const width = screen.availWidth;\r\n\r\n    if(width >= 768) {\r\n        modal.style.transition = \"all 1s ease \";\r\n        modal.style.opacity = 0;\r\n        modal.style.width = 'auto';\r\n        modal.style.display = \"block\";\r\n        popupContent.style.display = 'none';\r\n        \r\n        buttons.forEach(btn => {\r\n            btn.addEventListener('click', () => {\r\n                popupContent.style.display = 'block';\r\n                popupContent.display = 'block';\r\n                modal.style.opacity = 1;\r\n                modal.style.width = '100%';\r\n            });\r\n        });\r\n        btnClose.addEventListener('click', () => {\r\n            popupContent.style.display = 'none';\r\n            modal.style.opacity = 0;\r\n            modal.style.width = 'auto';\r\n        });\r\n        modal.addEventListener('click', (event) => {\r\n            if (event.target !== popupContent &&\r\n                event.target !== inputs[0] &&\r\n                event.target !== inputs[1] &&\r\n                event.target !== inputs[2] &&\r\n                event.target !== headingModal &&\r\n                event.target !== btnModal\r\n            ) {\r\n                modal.style.opacity = 0;\r\n                modal.style.width = 'auto';\r\n                popupContent.style.display = 'none';\r\n            }\r\n        });\r\n    } else {\r\n        buttons.forEach(btn => {\r\n            btn.addEventListener('click', () => {\r\n                modal.style.display = \"block\";   \r\n            });\r\n        });\r\n        btnClose.addEventListener('click', () => {\r\n            modal.style.display = \"none\";\r\n        });\r\n    }\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\n\n//# sourceURL=webpack:///./modules/modal.js?");
+
+/***/ }),
+
+/***/ "./modules/timer.js":
+/*!**************************!*\
+  !*** ./modules/timer.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst timer = (deadline) => {\r\n    const timerHours = document.getElementById('timer-hours');\r\n    const timerMinutes = document.querySelector('#timer-minutes');\r\n    const timerSeconds = document.querySelector('#timer-seconds');\r\n    \r\n    const getTimeRemaining = () => {\r\n        let dateShop = new Date(deadline).getTime();\r\n        let dateNow = new Date().getTime();\r\n        let timeRemaining = (dateShop- dateNow)/1000;\r\n        let hours = Math.floor(timeRemaining/60 /60);\r\n        let minutes = Math.floor((timeRemaining/60) %60);\r\n        let seconds = Math.floor(timeRemaining % 60);\r\n\r\n        return {timeRemaining, hours, minutes, seconds};\r\n    };\r\n    const updateClock = () => {\r\n        let getTime = getTimeRemaining();\r\n        if (getTime.timeRemaining > 0) {\r\n            if (String(getTime.hours).length === 1) {\r\n                timerHours.textContent = \"0\" + getTime.hours;\r\n            } else {timerHours.textContent = getTime.hours;}\r\n            if (String(getTime.minutes).length === 1) {\r\n                timerMinutes.textContent = \"0\" + getTime.minutes;\r\n            } else {timerMinutes.textContent = getTime.minutes;}\r\n            if (String(getTime.seconds).length === 1) {\r\n                timerSeconds.textContent = \"0\" + getTime.seconds;\r\n            } else {timerSeconds.textContent = getTime.seconds;}\r\n            // timerMinutes.textContent = getTime.minutes;\r\n            // timerSeconds.textContent = getTime.seconds;\r\n        }\r\n        else if (getTime.timeRemaining <= 0) {\r\n            clearInterval(idInterval);\r\n            timerHours.textContent = \"00\";\r\n            timerMinutes.textContent = \"00\";\r\n            timerSeconds.textContent = \"00\";\r\n        }\r\n        \r\n    };\r\n    updateClock();\r\n    let idInterval = setInterval(updateClock, 1000);\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\n\n//# sourceURL=webpack:///./modules/timer.js?");
+
+/***/ }),
+
+/***/ "./modules/validateForm.js":
+/*!*********************************!*\
+  !*** ./modules/validateForm.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst validateForm = () => {\r\n    const form2Name = document.getElementById('form2-name');\r\n    const form2Email = document.getElementById('form2-email');\r\n    const form2Phone = document.getElementById('form2-phone');\r\n    const form2Message = document.getElementById('form2-message');\r\n\r\n    form2Phone.addEventListener('input', (event) => {\r\n        event.target.value = event.target.value.replace(/\\d\\-\\(\\)/, '');\r\n    });\r\n    form2Message.addEventListener('input', (event) => {\r\n        event.target.value = event.target.value.replace(/[^а-яА-Я\\.\\ ]/, '');\r\n    });\r\n};\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (validateForm);\n\n//# sourceURL=webpack:///./modules/validateForm.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
+/******/ 	
+/******/ })()
+;
