@@ -36,6 +36,7 @@ const timer = (deadline) => {
         }
         
     };
+    updateClock();
     let idInterval = setInterval(updateClock, 1000);
 };
 export default timer;
