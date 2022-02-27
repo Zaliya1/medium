@@ -14,25 +14,26 @@ const validateForm = () => {
     });
     formNames.forEach(item => {
         item.addEventListener('input', (event) => {
-            event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
+            event.target.value = event.target.value.replace(/[^а-яА-Я\-\ ]/, '');
         });
         item.addEventListener('blur', (event) => {
-            event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/g, '');
+            event.target.value = event.target.value.replace(/[^а-яА-Я\-\ ]/g, '');
         });
         item.addEventListener('blur', (event) => {
             event.target.value = event.target.value.replace(/([а-яА-Я]){1}([а-яА-Я]){1,}]/g, ($1, $2)=> {
                 return `${$1}`.toUpperCase() + `${$2}`.toLowerCase();
             });
-            event.target.value = event.target.value.replace(/([а-яА-Я]){1,}/g, (str) => {
-                // for (let i = 0; i<str.lenght; i++) {
-                //     if (i === 0) {
-                //         str += str[i].toUpperCase; 
-                //     } else {
-                //         str += str[i].toLowerCase;
-                //     }
-                // }
-                // return str;
-                return str[0].toUpperCase()+str[1].toLowerCase()+str[2].toLowerCase()+str[3].toLowerCase()+str[4].toLowerCase();
+            event.target.value = event.target.value.replace(/([а-яА-Я]){1,}/g, () => {
+                let str = event.target.value;
+                let updateStr = '';
+                for (let i = 0; i<str.length; i++) {
+                    if (i === 0) {
+                        updateStr += str[i].toUpperCase(); 
+                    } else {
+                        updateStr += str[i].toLowerCase();
+                    }
+                }
+                return updateStr;
             });
             
         });
@@ -49,18 +50,18 @@ const validateForm = () => {
     });
     formPhones.forEach(item => {
         item.addEventListener('input', (event) => {
-            event.target.value = event.target.value.replace(/[^\d\-\(\)]/, '');
+            event.target.value = event.target.value.replace(/[^\d\-\(\)\+]/, '');
         });
         item.addEventListener('blur', (event) => {
-            event.target.value = event.target.value.replace(/[^\d\-\(\)]/g, '');
+            event.target.value = event.target.value.replace(/[^\d\-\(\)\+]/g, '');
             event.target.value = event.target.value.replace(/\s{1,}/g, ' ');
         });
     });
     form2Message.addEventListener('input', (event) => {
-        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/, '');
+        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ \,\!\;\:\"\'\-\?\(\)]/, '');
     });
     form2Message.addEventListener('blur', (event) => {
-        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ ]/g, '');
+        event.target.value = event.target.value.replace(/[^а-яА-Я\.\ \,\!\;\:\"\'\-\?\(\)]/g, '');
         event.target.value = event.target.value.replace(/\s{1,}/g, ' ');
     });
 };
