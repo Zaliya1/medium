@@ -6,12 +6,17 @@ const menu = () => {
     };
 
     document.body.addEventListener('click', (e) => {
-        if (e.target.classList.contains('close-btn') ||  
-        e.target.matches('a') || 
-        e.target.closest('.menu') || 
-        !e.target.matches('menu')) {
+        if (!menu.classList.contains('active-menu') && !e.target.matches('menu')) {
+            handleMenu();
+        } else if 
+            (menu.classList.contains('active-menu') && 
+            (e.target.classList.contains('close-btn') ||
+            e.target.matches('a') ||
+            !e.target.closest('.active-menu'))) 
+        {
             handleMenu();
         }
+        
     });
 
 };
