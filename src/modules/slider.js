@@ -1,8 +1,5 @@
-// const slider = (unactiveClass = 'portfolio-item', activeClass = 'portfolio-item-active') => {
 const slider = (arr) => {
     const {class1, class2, class3, class4, class5, class6} = arr;
-    console.log(class1);
-    console.log(class2);
     const sliderBlock = document.querySelector(`.${class3}`);
     const slides = document.querySelectorAll(`.${class1}`);
     const activeSlide = document.querySelectorAll(`.${class2}`);

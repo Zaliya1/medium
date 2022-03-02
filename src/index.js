@@ -20,5 +20,4 @@ const classes = {
     class5: 'dot',
     class6: 'dot-active',
 };
-// slider('portfolio-item', 'portfolio-item-active');
 slider(classes);
