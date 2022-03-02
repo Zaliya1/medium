@@ -12,4 +12,13 @@ modal();
 calculate();
 validateForm();
 tabs();
-slider('portfolio-item', 'portfolio-item-active');
+const classes = {
+    class1: 'portfolio-item',
+    class2: 'portfolio-item-active',
+    class3: 'portfolio-content',
+    class4: 'portfolio-dots',
+    class5: 'dot',
+    class6: 'dot-active',
+};
+// slider('portfolio-item', 'portfolio-item-active');
+slider(classes);
