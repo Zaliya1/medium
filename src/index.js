@@ -4,7 +4,7 @@ import modal from './modules/modal';
 import calculate from './modules/calculate';
 import validateForm from './modules/validateForm';
 
-timer('1 march 2022');
+timer('31 march 2022');
 menu();
 modal();
 calculate();
